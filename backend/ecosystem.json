@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "localfood",
+      "script": "npm",
+      "args": "start",
+      "watch": true
+    }
+  ]
+}

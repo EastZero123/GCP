@@ -1,0 +1,487 @@
+@charset "utf-8";
+
+/* font import */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://webfontworld.github.io/SCoreDream/SCoreDream.css');
+
+/* 아리따돋움 */
+@font-face {
+    font-family: 'AritaDotum';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/Arita-Dotum-Medium.woff) format("woff"),url(../font/Arita-Dotum-Medium.ttf) format("truetype");
+}
+
+/* RESET */
+* {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button {margin: 0; padding: 0}
+fieldset, img {border: 0 none; max-width: 100%}
+dl, ul, ol, menu, li {list-style: none}
+blockquote,  q {quotes: none}
+blockquote:before,  blockquote:after, q:before,  q:after {content: " "; content: none}
+input, select, textarea, button {box-sizing: border-box; vertical-align: middle}
+button {transition: all 0.3s ease; border: 0 none; background-color: transparent; cursor: pointer}
+table {border-collapse: collapse; border-spacing: 0}
+td, th {padding: 0}
+body {background: #fff}
+body, th, td, input, select, textarea, button {font-family: 'Pretendard', sans-serif; font-weight: 400; font-style: normal; outline: none;}
+a {color: #333; text-decoration: none; transition: all 0.3s ease;}
+address, caption, cite, code, dfn, em, var {font-style: normal; font-weight: normal}
+pre {white-space: pre-wrap;}
+caption, legend, .blind {overflow: hidden; position: absolute; top: 0; left: -999em; width: 0; height: 0; font-size: 0; line-height: 0; text-align: left}
+select {background-image: url('../img/ico/ico_arrow.png'); background-repeat: no-repeat; background-position: 98%; background-size: 11px 7px; appearance: none; -webkit-appearance: none; -moz-appearance: none;}
+input, textarea {appearance: none; -webkit-appearance: none;}
+input[type="text"]:focus, select:focus, textarea:focus {border-color: #41B091 !important; transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out;}
+
+/* LAYOUT */
+html,  body {width: 100%; height: 100%;}
+.wrap {position: relative; width: 100%; height: 100%;}
+.container {position: relative; min-height: 100%; margin: 0 auto;}
+
+/* COMMON */
+.h950 {height: 950px;}
+.m_blk {display: none;}
+.a-c {display: flex; justify-content: center; align-items: center;}
+.fp-viewing-anchor1 .fullpage-wrapper {transform: translate3d(0px, 0px, 0px) !important}
+
+/* HEADER */
+#header {width: 100%; z-index: 100; position: relative;}
+#private #header {height: 100px;}
+#private #header:before {content: ""; position: absolute; top: 100px; left: 0px; width: 100%; height: 1px; background: #d9d9d9;}
+#header .logo {position: absolute; top: 35px; left: 20px;}
+#header .logo a {display: inline-block; background-image: url("../img/logo/logo.png"); background-repeat: no-repeat; width: 244px; height: 24px; background-size: 100%; text-indent: -9999px}
+#private #header .logo a {background-image: url("../img/logo/page_logo.png");}
+#gnb {position: relative; max-width: 100%; margin: 70px auto; overflow-y: hidden}
+#gnb a {position: relative; font-family: 'SCoreDream', sans-serif; font-size: 48px; line-height: 106px; color: #fff;}
+#gnb a:before {content: " "; display: inline-block; position: absolute; bottom: -4px; left: 50%; width: 0; height: 2px; background: #fff; -webkit-transform: translate(-50%,0); transform: translate(-50%,0); transition: .3s ease-in-out;}
+#gnb a:hover:before {width: 100%;}
+
+/* NAV */
+nav {position: fixed; z-index: 10; background-color: #00AF8F; width: 100%; height: 100%; text-align: center; overflow-y: auto;}
+nav .inner {width: 100%; height: 100px; position: sticky; top: 0; z-index: 99; background-color: #00AF8F;}
+#header nav .logo a, #private #header nav .logo a {background: url("../img/logo/navon_logo.png") no-repeat left top;  background-size: 100%;}
+.nav_hide {display: none;}
+.navbar_toggle {position: absolute; top: 35px; right: 20px; width: 28px; height: 28px; z-index: 11;}
+.navbar_toggle a {display: block; width: 28px; height: 28px; text-indent: -9999px; background: url('../img/ico/menu_open.png') no-repeat;}
+#private .navbar_toggle a {background: url('../img/ico/page_menu_open.png') no-repeat; background-size: 100%;}
+.navbar_toggle.navbar_on a, #private .navbar_toggle.navbar_on a {background: url('../img/ico/menu_close.png') no-repeat;}
+
+/* tabs */
+.tabs {margin: 50px 0;}
+.tabs > ul {display: -webkit-box; display: flex; width: 100%; max-width: 810px; gap: 5px; flex-wrap: wrap;}
+.tabs > ul li {min-width: 128px}
+.tabs > ul li a {display: -webkit-box; display: flex; -webkit-align-items: center; align-items: center; -webkit-flex-direction: column; flex-direction: column; font-size: 16px; color: #777; padding: 7px 0; border: 1px solid #d0d0d0; border-radius: 50px; transition: all 0.3s ease;}
+.tabs > ul li a:hover, .tabs > ul li a:active, .tabs > ul li a:focus, .tabs > ul li.on a {background: #28AF8F; border: 1px solid #28AF8F; color: #fff;}
+.tab_content {display: none;}
+.tab_content.on {display: block;}
+
+#tabs {display: none;}
+
+/* ANIMATION */
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translateZ(0);
+	}
+}
+@keyframes fadeIndown {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, -100%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translateZ(0);
+	}
+}
+@keyframes fadeInLeft {
+    from {
+        opacity:0;
+        -webkit-transform: translatex(-100px);
+        -moz-transform: translatex(-100px);
+        -o-transform: translatex(-100px);
+        transform: translatex(-100px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatex(0);
+        -moz-transform: translatex(0);
+        -o-transform: translatex(0);
+        transform: translatex(0);
+    }
+}
+
+/* VISUAL SLIDE */
+.slick-slide {float: left;}
+.visual {overflow: hidden; position: relative; z-index: 1; max-height: 950px;}
+.visual_img {display: block; height: 950px; transition: all 1s cubic-bezier(0.7, 0, 0.3, 1); transform: scale(1.2);}
+.slick-active .visual_img {transform: scale(1);}
+.visual_img.m {display: none;}
+.visual_cont {position: absolute; min-width: 340px; top: 270px; left: 50%; transform: translateX(-50%); z-index: 4;}
+.visual_cont p {color: #fff; text-align: center; letter-spacing: -0.8px;}
+.visual .slick-track {overflow: hidden;}
+.visual .tag {display: block; max-width: 320px; font-family: 'SCoreDream', sans-serif; font-weight: normal; background: #41b091; border-radius: 50px; font-size: 20px; line-height: 57px; margin: 0 auto;}
+.visual .text {font-family: 'SCoreDream', sans-serif; font-weight: 500; font-size: 65px; line-height: 80px; margin: 45px 0;}
+.visual .text01 {font-size: 20px; line-height: 28px}
+.dot {position: absolute; bottom: 8%; display: flex; width: 100%; z-index: 99; align-items: center; justify-content: center;}
+.slider-dots {display: flex; justify-content: center; align-items: center; margin: 0 0 0 10px;}
+.slider-dots a {display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 53px; height: 53px; margin: 0 7px; cursor: pointer; transition: .3s all;}
+.circle-bg {fill: rgba(255, 255, 255, 0); stroke: rgba(255, 255, 255, 0.4); stroke-width: 2; stroke-linecap: butt;}
+.circle-go {fill: rgba(255, 255, 255, 0); stroke: rgb(255, 255, 255); stroke-width: 2; stroke-linecap: round; animation: progress 22s; stroke-dasharray: 360px; stroke-dashoffset: 360;}
+.circle-tx {fill: rgba(255, 255, 255, 0.5); stroke-width: 1; text-anchor: middle;}
+.slick-active .circle-tx {fill: #fff;}
+@keyframes progress {
+  from {
+    stroke-dashoffset: 360;
+  }
+  
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* VISUAL TEXT */
+.slick-slide.slick-active:nth-child(2n) .visual_cont p {animation: fadeInUp 1.5s;}
+.slick-slide.slick-active:nth-child(2n-1) .visual_cont p {animation: fadeIndown 1.5s;}
+.btn_play {display: block; width: 31px; height: 35px; z-index: 99; left: 50%; background: url('../img/ico/ico_pause.png') no-repeat center; background-size: 100%; text-indent: -9999px; cursor: pointer;}
+.btn_play.on {background: url('../img/ico/ico_play.png') no-repeat center;}
+
+/* Contents */
+.section {position: relative; width: 100%;}
+.section .section_box {height: 100%;}
+.section .text_box {text-align: center;}
+.fp-viewing-anchor4 #section4 .inner {animation: fadeInUp 1s;}
+
+/* ESG 비전 */
+#section1 marquee {font-size: 150px; line-height: 195px; position: absolute; top: 0; z-index: -1;}
+#section1 .inner {max-width: 1140px; padding: 0 20px; margin: 0 auto;}
+#section1 .tit {font-family: 'SCoreDream', sans-serif; font-weight: 500; font-size: 24px; line-height: 24px; color: #222;}
+#section1 p {font-family: 'SCoreDream', sans-serif; font-weight: 500; font-size: 65px; line-height: 140%; letter-spacing: -0.05em; color: #222; margin: 20px 0 0 0;}
+#section1 p strong {color: #2fa48a; font-weight: 500;}
+#section1 span {display: inline-block; font-size: 20px; line-height: 26px; letter-spacing: -0.05em; color: #000; margin: 20px 0 50px 0;}
+.fp-viewing-anchor2 #section1 .cont {animation: fadeInLeft 1s;}
+.fp-viewing-anchor2 #section1 img {animation: fadeInUp 1s;}
+
+/* 스마트로컬푸드 솔루션 */
+#section2 .inner {display: block; width: 90%; height: 94%; max-height: 826px; text-align: center; padding: 70px 2%; margin: 3% 5%; border-radius: 50px; background: url(../img/content/local_img02.png) no-repeat center; background-size: cover;}
+#section2 .tit {display: block; font-family: 'SCoreDream', sans-serif; font-weight: 500; color: #fff; font-size: 44px; line-height: 140%; letter-spacing: -0.05em; padding: 165px 0 100px 0;}
+#section2 .walk_area {max-width: 1560px; margin: 0 auto;}
+#section2 .walk_area ul {display: flex; flex-wrap: wrap; justify-content: space-between}
+#section2 .walk_area li {position: relative; width: calc(20% - 40px); height: 280px; color: #fff; padding: 120px 0 0 0; background: #549618; border-radius: 60px;}
+#section2 .walk_area li p {font-family: 'SCoreDream', sans-serif; font-weight: 500;}
+#section2 .walk_area li span {font-family: 'Pretendard', sans-serif; font-weight: 200;}
+#section2 .walk_area li p:before {content: ""; display: block; background-repeat: no-repeat; position: absolute; top: 43px; left: 50%;}
+#section2 .walk_area li:first-child p:before {width: 46px; height: 46px; background-image: url('../img/ico/ico_01.png'); margin-left: -23px;}
+#section2 .walk_area li:nth-child(2) p:before {width: 66px; height: 39px; background-image: url('../img/ico/ico_02.png'); margin-left: -33px;}
+#section2 .walk_area li:nth-child(3) p:before {width: 52px; height: 47px; background-image: url('../img/ico/ico_03.png'); margin-left: -25px;}
+#section2 .walk_area li:nth-child(4) p:before {width: 35px; height: 44px; background-image: url('../img/ico/ico_04.png'); margin-left: -17.5px;}
+#section2 .walk_area li:last-child p:before  {width: 61px; height: 52px; background-image: url('../img/ico/ico_05.png'); margin-left: -30.5px;}
+#section2 .walk_area li p, #section2 .walk_area li span {font-size: 20px; line-height: 20px;}
+#section2 .walk_area li strong {display: block; font-family: 'SCoreDream', sans-serif; font-weight: 500; font-size: 55px; line-height: 84px;}
+#section2 .walk_area li .num {position: relative; top: 40px; opacity: 0; transition: all .0s ease-out 0.5s, opacity .1s ease-out 0s;}
+#section2.active .walk_area li .num {top: 0px; opacity: 1; transition: all 0.5s ease-out 0.5s;}
+
+/* 매장 */
+#section3 .sec01 {width: 100%; max-width: 800px}
+#section3 .sec02 {display: flex; margin: auto}
+#section3 .locate {display: block; width: 100%; max-width: 1550px; height: 100%; padding: 70px 20px 90px 20px; margin: 0 auto;}
+#section3 h2 {font-family: 'SCoreDream', sans-serif; font-style: normal; font-weight: 500; font-size: 62px; line-height: 130%; letter-spacing: -0.05em; color: #000;}	
+#section3 h2 strong {color: #41b091; font-weight: 500}
+#section3 .locate .inner {display: flex; justify-content: space-between;}
+#section3 .store {position: relative; padding: 0 0 50px 0; border-top: 1px solid #000; opacity: 0; visibility: hidden;}
+#section3 .store.slick-initialized {opacity: 1; visibility: visible;}
+#section3 .store .slick-track {width: 100% !important;}
+#section3 .store .slick-slide {display: none; float: none; width: 100% !important; left: auto !important; opacity: 1 !important;}
+#section3 .store .slick-slide.slick-active, #section3 .store .slick-slide.slick-current {display: block;}
+#section3 .store .slick-slide li {display: table !important; padding: 35px; border-bottom: 1px solid #d0d0d0;}
+#section3 .store .slick-slide li * {display: table-cell; vertical-align: middle; color: #000;}
+#section3 .store .slick-slide li .city {width: 20%; font-size: 16px; font-weight: 500; line-height: 19px;}
+#section3 .store .slick-slide li .name {width: 60%; font-size: 16px; line-height: 24px; padding: 0 0 0 20px}
+#section3 .store .slick-slide li .name strong {font-size: 20px; padding: 3px 0 0 0;}
+#section3 .store .slick-slide li a {width: 32px; height: 32px; text-indent: -9999px; background: url('../img/ico/ico_pop.png') no-repeat; position: absolute; right: 3%; top: 50%; margin: -16px 0 0 0;}
+#section3 .store .slick-slide li a:hover {background: url('../img/ico/ico_pop_on.png') no-repeat;}
+#section3 .slick-slide li .hide {display: none;}
+#section3 .store .slick-arrow {width: 50px; height: 50px; text-indent: -9999px; position: absolute; bottom: -10px}
+#section3 .slick-prev {left: 50%; margin-left: -50px; background: url('../img/content/btn_prev_arrow.png') no-repeat;}
+#section3 .slick-next {right: 50%; margin-right: -60px; background: url('../img/content/btn_next_arrow.png') no-repeat;}
+#section3 .map {position: relative; text-align: right;}
+#section3 .map svg {width: 100%; height: 829px; margin: -150px 0 0 0;}
+#section3 .map .t {cursor: pointer;}
+#section3 .map .t:hover, #section3 .map .t:active, #section3 .map .t:focus {fill: #27AF8F;}
+#section3 .map_pop {visibility: hidden; opacity: 0; width: 100%; height: 100%; min-width: 642px;}
+#section3 .map_pop a {width: 52px; height: 52px; color: transparent; background: url('../img/content/pop_close.png') no-repeat; background-size: 100%; position: absolute; right: 0; top: -90px; z-index: 99;}
+#section3 .map_pop.on, #section3 .map_pop#t2 .map_1 {visibility: visible; opacity: 1;}
+#section3 .locate .map .inner {position: relative; left: 100px;}
+#section3 .locate .map #t2 .inner {top: -180px}
+#section3 .locate .map #t7 .inner {left: 200px}
+#section3 .locate .map #t9 .inner {left: 0px}
+#section3 .locate .map #t10 .inner, #section3 .locate .map #t12 .inner {top: 100px}
+
+.map_pop img {opacity: 0; transform: scale(0); transform-origin: center; transition: all 0.5s ease; margin: auto;}
+.map_pop.on img {opacity: 1; transform: scale(1);}
+#map text {fill: #222222; white-space: pre; font-family: 'SCoreDream', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: -0.05em; transition: all 0.3s ease;}
+#map path {fill: #EFEFEF; stroke: #ffffff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; transition: all 0.3s ease;}
+#map g:not(#other):not(#legend) {cursor: pointer;}
+#map g:not(#other):not(#legend):hover path, #map g.on path {fill: #27AF8F;}
+#map g:not(#other):not(#legend):hover text, #map g.on text {fill: #ffffff; filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}
+
+/* popup */
+.popup {display: none; position: fixed; width: 100%; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 1001}
+.popup .cancel {width: 29px; height: 29px; color: transparent; background: url('../img/pop/pop_close.png') no-repeat; position: absolute; right: -50px; z-index: 99;}
+.popup:before {content: ''; display: inline-block; height: 100%; margin-right: -4px; vertical-align: middle;}
+.popup .modal_container {display: inline-block; position: relative; width: 100%; max-width: 648px;}
+.popup.private_pop .modal_container {max-width: 1000px;}
+.popup .modal_contents .title {color: #333; font-size: 20px; line-height: 30px; padding-top: 40px;}
+.popup .modal_contents .title > span:not([class]) {display: block; padding-top: 30px; color: #666; font-size: 15px; font-weight: normal;}
+.popup .modal_contents > .m_f {margin-top: 30px;}
+.popup .modal_contents > .m_f * {height: 40px; line-height: 40px; font-size: 15px;}
+.popup .modal_contents .inner {padding: 30px; margin: -5px 0 0 0; background: #fff}
+.popup.private_pop .modal_contents .inner {height: 600px; overflow-y: auto; text-align: left;}
+.proj_cancel {width: 36px; height: 36px; color: transparent; position: absolute; top: 30px;	right: 30px; background: url('/resources/img/kor/tmp/product_pop_close.png') no-repeat; background-size: cover; line-height: 6px; font-size: 12px;}
+.modal_overlay {opacity: 0; filter:alpha(opacity=0); position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 100%; background-color: rgba(0,0,0,.6);}
+
+.popup table {table-layout: fixed; width: 100%; border-top: 1px solid #000;}
+.popup tr {border-bottom: 1px solid #E4E4E4;}
+.popup th {color: #222; font-size: 16px; text-align: center; padding: 15px; background: #F5F5F5;}
+.popup td {color: #222; font-size: 16px; text-align: left; padding: 15px;}
+
+@media screen and (max-width:1024px) {
+	.popup .modal_container {width: 90%;}
+	.popup.private_pop .modal_contents .inner {height: 400px;}
+}
+
+/* 스마트로컬푸드 특장점 */
+#section4 .inner {position: relative; display: block; width: 100%; height: 100%; max-height: 826px; text-align: center; margin: 3% 5%; border-radius: 30px; overflow: hidden}
+#section4 .tit {position: absolute; top: 30%; left: 8%; z-index: 9999; font-size: 22px; font-weight: 400; line-height: 26px; color: #fff;}
+#section4 .cont {display: block; width: 100%; height: 826px; overflow: hidden; border-radius: 40px;}
+#section4 .cont strong {position: absolute; top: 40%; left: 8%; padding: 0 10px 0 0; font-family: 'SCoreDream', sans-serif; font-weight: 500; font-size: 40px; line-height: 140%; color: #fff; text-align: left;}
+#section4 .cont p {position: absolute; top: 65%; left: 8%; font-size: 20px; line-height: 25px; text-align: left; color: #fff; letter-spacing: -0.08em;}
+#section4 .btn {display: block; position: absolute; bottom: 15%; width: 100%; z-index: 9999}
+#section4 .btn button {display: inline-block; min-width: 170px; font-family: 'SCoreDream', sans-serif; color: #fff; background: #41b091; border-radius: 20px; font-size: 16px; line-height: 19px; padding: 13px 26px; margin: 0 2.5px;}
+#section4 .btn button:hover, #section4 .btn button:active, #section4 .btn button:focus {background: #5f7bcc}
+#section4 .slick-prev, #section4 .slick-next {position: absolute; top: 50%; width: 28px; height: 54px; z-index: 9999; text-indent: -9999px}
+#section4 .slick-prev {left: 2%; background: url('../img/ico/ico_prev.png') no-repeat;}
+#section4 .slick-next {right: 2%; background: url('../img/ico/ico_next.png') no-repeat;}
+#section4 .slick-dots {position: absolute; bottom: 66px; width: 100%; z-index: 9999;}
+#section4 .slick-dots li {display: inline-block; margin: 0 7px;}
+#section4 .slick-dots li a {display: inline-block; width: 6px; height: 6px; text-indent: -9999px; background: rgba(255, 255, 255, 0.5); border-radius: 50%;}
+#section4 .slick-dots li.slick-active a {position: relative; top: -3px; width: 16px; height: 16px; background: none; border: 3px solid #fff;}
+#section4 .popwrap {display: none; width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 9999;}
+#section4 .popwrap.on {display: block;}
+#section4 .m {display: none;}
+
+/* 스마트로컬푸드 특장점 popup */
+.pop_cont {display: none; width: 100%; height: 100%;}
+.pop_cont.on {display: flex; justify-content: center; align-items: center;}
+.pop_cont img {max-width: 90%}
+#pop_sys {padding: 5%; background: #E2DFE7;}
+#pop_slide1 {background: #DEE8F6;}
+#pop_slide2 {background: #DDEEE4;}
+#pop_slide3 {background: #EFEFEF;}
+#pop_slide4 {background: #F1EFE4;}
+#pop_slide5 {background: #EEE3E1;}
+#pop_slide6 {background: #DEF2F6;}
+.view {width: 170px; position: absolute; top: 65%; left: 8%; font-size: 18px; font-weight: 400; color: #fff; line-height: 24px; text-align: left; padding: 8px 0; transition: all 0.3s ease;}
+.view span {display: inline-block; transition: all 0.3s ease;}
+.view:before {content: ""; display: block; position: absolute; bottom: 0px; left: 0; right: 0; margin: 0 auto; width: 100%; height: 1px; background-color: #fff; transition: all 0.3s ease;}
+.view:after {content: ""; display: inline-block; width: 22px; height: 16px; background: url('../img/ico/view_after.png') no-repeat; position: absolute; top: 15px; right: 0; transition: all 0.3s ease;}
+.view:hover:before {width: 0;}
+.view:hover:after {right: 30px;}
+.view:hover span {padding-left: 30px;}
+.view:hover, .view:focus, .view:active {background: #41b091;}
+.pop_close {display: inline-block; width: 30px; height: 30px; position: absolute; top: 50px; right: 50px; text-indent: -9999px; background: url('../img/ico/pop_close.png') no-repeat; background-size: 100%}
+
+/* 문의하기 */
+#section5 {background: #E7F2F0}
+#section5 .inner {display: flex; padding: 8%;}
+#section5 .tit {width: 33%}
+#section5 .tit strong {font-family: 'SCoreDream', sans-serif; font-style: normal; font-weight: 500; font-size: 58px; line-height: 58px;}
+#section5 .tit p {color: #000; font-size: 20px; line-height: 30px; letter-spacing: -0.05em; text-align: left; padding: 15px 0 0 0;}
+#section5 .form {width: 67%}
+#section5 .form ul li {display: flex; justify-content: space-between; padding: 0 0 10px 0;}
+#section5 .form ul li.n2 * {width: calc(50% - 5px);}
+#section5 .form input, #section5 .form select, #section5 .form textarea {width: 100%; height: 52px; padding-left: 10px; border: 1px solid #d7d7d7; border-radius: 5px; background-color: rgba(255, 255, 255, 0.2); color: #777; font-size: 16px;}
+#section5 .form textarea {height: 210px; padding: 20px 10px;}
+#section5 .form .btm {display: flex; justify-content: space-between;}
+#section5 .form .btm .check-privacy input {display: none;}
+#section5 .form .btm .check-privacy input + label {display: inline-block; position: relative; top: 4px; width: 20px; height: 20px; border: 1px solid #b7b7b7; background: #fff; font-size: 16px; color: #999; cursor: pointer;}
+#section5 .form .btm .check-privacy input:checked + label {background: url('../img/ico/check_o.png') no-repeat; background-size: 100%;}
+#section5 .form p {display: inline-block; color: #666; font-size: 16px; font-weight: 300; line-height: 30px; letter-spacing: -1px; padding: 20px 0 0 5px;}
+#section5 .form p a {font-weight: 400; color: #28AF8F; border-bottom: 1px solid #28AF8F; margin: 0 0 0 5px;}
+#section5 .form p a:hover {color: #5f7bcc; border-bottom: 1px solid #5f7bcc;}
+#section5 .form button {color: #fff; font-size: 18px; background: #28AF8F; border-radius: 5px; padding: 14px 60px; margin: 30px 0 0 0;}
+#section5 .form button:hover, #section5 .form button:active, #section5 .form button:focus {background: #5f7bcc}
+
+/* FOOTER */
+.footer_wrap {position: absolute; bottom: 0; width: 100%; background: #3B4443;}
+#private .footer_wrap {position: relative;}
+.footer_wrap .inner_f {max-width: 100%; display: flex; margin: 0 auto; padding: 35px; text-align: center; justify-content: space-between; align-items: center;}
+.footer_wrap .l_logo {display: inline-block; background: url('../img/logo/logo_happyict.png') no-repeat; width: 116px; height: 44px; background-size: 116px 44px;}
+.footer_wrap .l_logo a {display: block; width: 100%; height: 100%;}
+.footer_wrap .r_logo li {display: inline-block; background-repeat: no-repeat;}
+.footer_wrap .r_logo li:nth-child(1) {width: 117px; height: 31px; background-image: url('../img/logo/logo_social01.png'); background-size: 117px 31px;}
+.footer_wrap .r_logo li:nth-child(2) {width: 88px; height: 42px; background-image: url('../img/logo/logo_social02.png'); background-size: 88px 42px; margin: 0 0 0 35px;}
+.footer_wrap .m_area {margin: 0 0 0 100px;}
+.footer_wrap .m_area a {color: #fff; font-size: 16px; font-weight: 300;}
+.footer_wrap p {color: #b1b3b3; font-size: 16px; font-weight: 300; margin: 20px 0 0 0; line-height: 22px; letter-spacing: -0.05em; text-align: center;}
+
+/* 개인정보 취급방침 */
+.cont-privacy {max-width: 1140px; margin: 0 auto;}
+.cont-privacy h2,
+.cont-privacy h3,
+.cont-privacy h4 {display: block; font-weight: 500;}
+.cont-privacy h2 {font-family: 'SCoreDream', sans-serif; margin-bottom: 40px; font-size: 30px; text-align:center; color: #222;}
+.cont-privacy h3 {font-family: 'Pretendard', sans-serif; padding-bottom: 38px; font-size: 20px; color: #222;}
+.cont-privacy p {display: block; padding-bottom: 38px; font-size: 16px; font-weight: 500; line-height: 26px; color: #666;}
+.cont-privacy ul.main ul,
+.cont-privacy li p.last {padding: 0;}
+.cont-privacy ul.main li {padding-bottom: 60px;}
+.cont-privacy ol.main {border-top:1px solid #444; padding-top:60px;}
+.cont-privacy ul.sub {padding-bottom: 60px;}
+.cont-privacy ul.sub li {display: block; font-family: 'Pretendard', sans-serif; font-size: 16px; font-weight: 500; line-height: 26px; color: #666; padding: 0;}
+.cont-privacy strong {color: #444; font-weight: 500;}
+
+/* REPONSIVE */
+@media all and (max-width: 1560px) {
+
+	/* 스마트로컬푸드 솔루션 */
+	#section2 .tit {font-size: 32px; padding: 0 0 50px 0}
+	#section2 .walk_area ul {width: 100%; margin: 0 auto; justify-content: flex-start;}
+	#section2 .walk_area li {width: 29%; margin: 2%;}
+	#section2 .walk_area li strong {font-size: 28px; line-height: 60px}
+	#section2 .walk_area li p, #section2 .walk_area li span {font-size: 16px;}
+
+	/* 매장 */
+	#section3 .sec01 {max-width: 600px}
+	#section3 .sec02  {max-height: 540px}
+	#section3 .map svg {height: 540px; margin: 0px auto;}
+	#section3 .map_pop {display: none; position: relative; min-width: auto}
+	#section3 .map_pop img {max-height: 540px;}
+	#section3 .map_pop.on {display: block}
+	#section3 .map_pop a {width: 35px; height: 35px; top: 0;}
+	#section3 .locate .map .inner {top: 0 !important; left: 0 !important; margin: 20px 0 0 0}
+	#section3 .store .slick-slide li {padding: 20px;}
+	#section3 .store .slick-slide li .city {width: 25%; font-size: 14px;}
+	#section3 .store .slick-slide li .name strong {font-size: 16px;}
+
+} /* 1560 end */
+
+@media all and (max-width: 1024px) {
+
+	/* COMMON */
+	html.fp-enabled, .fp-enabled body {overflow: visible !important;}
+	html.fp-enabled.on, .fp-enabled.on body {overflow: hidden !important;}
+	.m_blk {display: block !important;}
+	.m_non {display: none;}
+	.h950 {height: auto}
+	#gnb {margin: 40px auto;}
+	#gnb a {font-size: 26px; line-height: 80px;}
+	#header .logo a, #header nav .logo a, #private #header nav .logo a {width: 210px;}
+
+	/* tabs */
+	.tabs {display: none;}
+	#tabs {display: block; width: 100%; padding: 13px 20px; margin: 0px 0 30px 0; border: 1px solid #41B091; background: #41B091 url(../img/ico/ico_dropdown.png) 95% no-repeat; color: #fff; font-size: 14px; border-radius: 30px;}
+	#tabs option {color: #333; background: #fff; font-size: 14px;}
+
+	/* 비주얼 베너 */
+	.visual_img {height: 600px;}
+	.visual_img.web, .visual .text01 br {display: none;}
+	.visual_img.m {display: block;}
+	.visual_cont {top: 150px;}
+	.visual .tag {max-width: 220px; font-size: 13px; line-height: 40px;}
+	.visual .text {font-size: 30px; line-height: 36px; margin: 25px 0;}
+	.visual .text01 {font-size: 14px; line-height: 20px;}
+	#section0 .box {height: 600px;}
+
+	/* ESG 비전 */
+	.fp-viewing-anchor2 #section1 .cont, .fp-viewing-anchor2 #section1 img {animation: none;}
+	#section1 .inner {padding: 0 20px; margin: 70px auto;}
+	#section1 .tit {font-size: 16px}
+	#section1 p {font-size: 32px}
+	#section1 span {font-size: 16px}
+	#section1 marquee {display: none;}
+
+	/* 스마트로컬푸드 솔루션 */
+	#section2 .inner {width: 100%; max-height: 100%; margin: 0; border-radius: 0}
+
+	/* 매장 */
+	#section3 .locate .inner {flex-wrap: wrap;}
+	#section3 .sec01 {max-width: 100%; order: 1;}
+	#section3 .sec02 {margin: 0 auto 50px auto;}
+	#section3 h2 {font-size: 33px;}
+	.popup th, .popup td {font-size: 14px;}
+	.popup .cancel {top: -50px; right: 0;}
+	
+	/* 스마트로컬푸드 특장점 */
+	#section4 .inner {max-height: 500px; margin: 0; border-radius: 0}
+	#section4 .cont {height: 500px; border-radius: 0;}
+	#section4 .slick-prev, #section4 .slick-next {display: none !important;}
+	#section4 .tit {top: 10%; left: 5%; font-size: 16px;}
+	#section4 .cont strong {top: 20%; left: 5%; font-size: 21px; letter-spacing: -2px}
+	#section4 .cont p {max-width: 70%; top: 40%; left: 5%; font-size: 16px;}
+	#section4 .view {top: 45%; left: 5%; font-size: 13px;}
+	#section4 .btn {bottom: 25%}
+	#section4 .btn button {font-size: 13px;}
+	#section4 .pop_close {width: 20px; height: 20px; top: 30px; right: 30px;}
+	#section4 .p {display: none;}
+	#section4 .m {display: block;}
+	.pop_cont.on {align-items: inherit; padding: 70px 0;}
+
+	/* 문의하기 */
+	#section5 .inner {display: block; text-align: center; padding: 70px 20px}
+	#section5 .tit, #section5 .form {width: 100%}
+	#section5 .tit strong {font-size: 36px; line-height: 36px;}
+	#section5 .tit p {font-size: 16px; padding: 20px 0 30px 0; text-align: center}
+	#section5 .tit p br {display: none}
+	#section5 .form button {width: 100%}
+	#section5 .form .btm {display: block; text-align: left}
+	#section5 .form .btm p {padding: 0;}
+	
+	/* 개인정보 취급방침 */
+	.cont-privacy h2 {font-size: 24px; margin-bottom: 40px;}
+	.cont-privacy h3 {font-size: 18px; padding-bottom: 15px;}
+	.cont-privacy ul.main li {padding-bottom: 15px;}
+	.cont-privacy ol.main {padding: 30px 0 0 0;}
+	.cont-privacy p {font-size: 14px; padding-bottom: 15px;}
+	.cont-privacy ul.sub {font-size: 14px; padding-bottom: 30px;}
+	.cont-privacy ul.sub li {font-size: 14px;}
+
+	/* FOOTER */
+	.footer_wrap {position: relative;}
+	.footer_wrap .inner_f {display: block; padding: 20px;}
+	.footer_wrap .m_area {margin: 20px 0 0 0;}
+	.footer_wrap .m_area a {font-size: 14px;}
+	.footer_wrap p {margin: 20px 0;}
+
+} /* 1024 end */
+
+@media all and (max-width: 720px) {
+
+	/* 스마트로컬푸드 솔루션 */
+	#section2 .walk_area li {width: 46%; height: auto; padding: 105px 0 29px 0;}
+
+} /* 720 end */
+
+@media all and (max-width: 640px) {
+	
+	/* FOOTER */
+	.footer_wrap p {font-size: 14px; margin-top: 20px;}
+	
+	/* 스마트로컬푸드 특장점 */
+	#section4 .cont strong {font-size: 18px;}
+	#section4 .tit, #section4 .cont p {font-size: 14px;}
+
+} /* 640 end */
